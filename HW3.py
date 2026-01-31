@@ -80,7 +80,7 @@ class CouponDispenser:
             coupon = self.coupon_cards[coupon_index]
             return f"That name already has a coupon: {coupon}"
         
-        random_coupon_index = random.randint(self.coupon_cards)
+        random_coupon_index = random.randint(0, len(self.coupon_cards) - 1)
         self.customer_roster.append(name)
         self.issued_indices.append(random_coupon_index)
         return self.coupon_cards[random_coupon_index]
@@ -178,9 +178,9 @@ def main():
     dispenser.tally_distribution()
 
     # Uncomment the lines below as you implement each function.
-    # box = CouponDispenser(coupon_cards)
-    # box.distribute_session()
-    # box.tally_distribution()
+    box = CouponDispenser(coupon_cards)
+    box.distribute_session()
+    box.tally_distribution()
     
 
 
