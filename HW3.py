@@ -1,12 +1,14 @@
 # Name: Sofia Blade Samai
 # Student ID: 2340 6022
 # Email: sbsamai@umich.edu
-# Who or what you worked with on this homework (including generative AI like ChatGPT):
+# Who or what you worked with on this homework (including generative AI like ChatGPT): ChatGPT
 # If you worked with generative AI also add a statement for how you used it.
-# e.g.:
+# Statement: I asked ChatGPT about code structure and how to get started. When I was testing my code and came across errors, I also would ask about debugging strategies and why the code was not working. 
+# e.g.: 
 # Asked ChatGPT hints for debugging and suggesting the general structure of the code
 # Did your use of GenAI on this assignment align with your goals and guidelines in 
 #    your Gen AI contract? If not, why?
+# Yes, I followed my contract.
 
 import random
 import io
