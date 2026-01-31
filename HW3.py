@@ -123,9 +123,9 @@ class CouponDispenser:
             else:
                 coupon_pieces = user_input.split(", ")
                 for text in coupon_pieces:
-                    text_is_stripped = text.strip()
-                    if text_is_stripped != "":
-                        result = self.issue_coupon(text_is_stripped)
+                    stripped_text = text.strip()
+                    if stripped_text != "":
+                        result = self.issue_coupon(stripped_text)
                         print(result)
 
     def tally_distribution(self):
@@ -144,7 +144,18 @@ class CouponDispenser:
             None
         """
         # TODO: Implement per instructions
-        pass
+        if not self.issued_indices:
+            print("Empty")
+            return
+        
+        for i in range(len(self.coupon_cards)):
+            count = 0
+            for issued_index in self.issued_indices:
+                if issued_index == i:
+                    count += 1
+
+            coupon = self.coupon_cards[i]
+            print(f"{coupon} distribution count: {count}.")
 
 
 def main():
@@ -162,11 +173,15 @@ def main():
         "Free extra espresso shot",
     ]
 
+    dispenser = CouponDispenser(coupon_cards)
+    dispenser.distribute_session()
+    dispenser.tally_distribution()
+
     # Uncomment the lines below as you implement each function.
     # box = CouponDispenser(coupon_cards)
     # box.distribute_session()
     # box.tally_distribution()
-    pass
+    
 
 
 # -----------------------
