@@ -48,6 +48,11 @@ class CouponDispenser:
             str
         """
         # TODO: Implement per instructions
+
+        if not self.coupon_cards:
+            return ""
+        
+        return "|".join(self.coupon_cards)
         
 
     def issue_coupon(self, name):
@@ -65,7 +70,21 @@ class CouponDispenser:
             str: message as described above
         """
         # TODO: Implement per instructions
-        pass
+        
+        if not self.coupon_cards:
+            return "The box is empty."
+        
+        if name in self.customer_roster:
+            name_already_exists = self.customer_roster.index(name)
+            coupon_index = self.issued_indices[name_already_exists]
+            coupon = self.coupon_cards[coupon_index]
+            return f"That name already has a coupon: {coupon}"
+        
+        random_coupon_index = random.randint(self.coupon_cards)
+        self.customer_roster.append(name)
+        self.issued_indices.append(random_coupon_index)
+        return self.coupon_cards[random_coupon_index]
+    
 
     def distribute_session(self):
         """
